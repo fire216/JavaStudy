@@ -1,6 +1,6 @@
 package ch05;
 
-public class Bingo {
+public class Exam5_3 {
 	public static void main(String[] args) {
 		char[] nums = { 'a', 'b', 'c', 'd', 'e', 'f', 'g' };
 
