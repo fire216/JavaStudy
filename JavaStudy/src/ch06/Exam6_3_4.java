@@ -13,7 +13,7 @@ public class Exam6_3_4{
 		
 	}
 	public static void dilemma(int xa, int xb) {
-		boolean = false;
+		
 	}
 }
 
