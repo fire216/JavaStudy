@@ -4,7 +4,8 @@ import javax.swing.JFrame;
 
 public class Window {
 	public static void main(String[] args) {
-		JFrame j = new JFrame("내 창");
+		JFrame j = new JFrame("");
+		j.setTitle("내 창");
 		j.setSize(200, 100);
 		j.setVisible(true);
 	}
