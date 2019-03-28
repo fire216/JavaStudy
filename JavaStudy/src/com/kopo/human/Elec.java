@@ -5,8 +5,9 @@ public interface Elec {
 //    int i=7;
 //	public int k=11;// 접근 제한 X
 
-	public void volumeUp(); //추상메소드
+	int i = 9; //public static final이 생략 돼있음
 	
+	public void volumeUp(); //추상메소드
 	public void volumeDown();
 	
 }
