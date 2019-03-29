@@ -11,6 +11,24 @@ public class TestMain {
 		tv.volumeDown();
 		m.volumeUp();
 		m.volumeDown();
+		Elec audio = new Elec() {
+
+			@Override
+			public void volumeUp() {
+				System.out.println("오디오 볼륨 업");
+				
+			}
+
+			@Override
+			public void volumeDown() {
+				System.out.println("오디오 볼륨 다운");
+				
+			}
+			
+		};
+			
+		audio.volumeUp();
+		audio.volumeDown();
 		
 	}
 }
