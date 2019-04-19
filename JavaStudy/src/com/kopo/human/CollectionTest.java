@@ -3,6 +3,7 @@ package com.kopo.human;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import javax.print.DocFlavor.STRING;
@@ -21,6 +22,9 @@ public class CollectionTest {
 
 		// jdk1.7부터는 아래와 같이 사용 가능
 		ArrayList<Elec> al = new ArrayList<>();
+//		ArrayList<int> al = new ArrayList<>(); ---> (x)
+		ArrayList<Integer> al1 = new ArrayList<>();
+		
 		Mp3 m = new Mp3();
 		Mp3 n = new Mp3();
 		al.add(m);
@@ -48,8 +52,25 @@ public class CollectionTest {
 		hm.put("1st", new Mp3());
 		hm.put("2st", new Radio());
 		hm.put("3st", new Tv());
+		hm.put("4st", new Elec() {
+			
+			//일회용으로 한번 밖에 못 씀
+			@Override
+			public void volumeUp() {
+				System.out.println("Cell의 볼륨업");
+				
+			}
+
+			@Override
+			public void volumeDown() {
+				System.out.println("Cell의 볼륨다운");
+				
+			}
+			
+		});
 
 		System.out.println(hm);
+		System.out.println("toString 메소드:"+ new Mp3()); //print 안에 객체가 들어오면 그 객체의 해시태그가 작동함
 
 		// key값만 출력
 		Set<String> ss = hm.keySet();
@@ -68,10 +89,15 @@ public class CollectionTest {
 		// key 와 value 동시 출력
 		Set<String> ss1 = hm.keySet();
 		for (String temp : ss1) {
-			System.out.print("키 값은:" + temp +" ");
+			System.out.print("키 값은:" + temp + " ");
 			System.out.println("value 값은:" + hm.get(temp));
 		}
 
+		// entrySet()을 이용하여 key와 value를 같이 가져옴
+		Set<Map.Entry<String, Elec>> es = hm.entrySet(); // elec이 다른 패키지에 있어서 못가져오는듯? 변수명이 없어서 에러 떳음
+		for (Map.Entry<String, Elec> entry : es) {
+			System.out.println("키 값은:" + entry.getKey());
+			System.out.println("value 값은:" + entry.getValue());
+		}
 	}
-
 }
